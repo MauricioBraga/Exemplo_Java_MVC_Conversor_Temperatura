@@ -23,12 +23,27 @@ public class TemperaturaController {
     }
 
     private void converter() {
-        double valor = view.getValor();
+
+        double valor;
+
+        // tenta obter o valor digitado na view, 
+        // se for inválido exibe uma mensagem de erro e 
+        // encerra a conversão.
+        try {
+            valor = view.getValor();
+        } catch (NumberFormatException ex) {
+            view.mostrarErro("Digite um valor numérico para a temperatura.");
+            return; 
+        }
+
+        // recebe os dados da view
         String origem = view.getOrigem();
         String destino = view.getDestino();
 
         double resultado = 0;
 
+        // passa os dados de entrada para o modelo processar 
+        // e recebe o resultado final da conversão realizada.
         if (origem.equals(destino)) {
             resultado = valor;
         } else if (origem.equals("Celsius") && destino.equals("Fahrenheit")) {
@@ -45,6 +60,8 @@ public class TemperaturaController {
             resultado = model.kelvinParaFahrenheit(valor);
         }
 
+        // passa o resultado da conversão obtida junto ao model 
+        // para a view exibir para o usuário.
         view.setResultado(resultado);
     }
 }

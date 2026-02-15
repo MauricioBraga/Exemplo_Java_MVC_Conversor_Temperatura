@@ -51,4 +51,14 @@ public class TemperaturaView extends JFrame {
     public void addConverterListener(ActionListener l) {
         btnConverter.addActionListener(l);
     }
+
+    public void mostrarErro(String mensagem) {
+    JOptionPane.showMessageDialog(
+        this,
+        mensagem,
+        "Valor inválido",
+        JOptionPane.ERROR_MESSAGE
+    );
+}
+
 }

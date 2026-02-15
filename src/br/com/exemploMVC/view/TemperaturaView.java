@@ -8,11 +8,9 @@ public class TemperaturaView extends JFrame {
 
     private JTextField txtValor = new JTextField(10);
 
-    private JComboBox<String> cbOrigem =
-            new JComboBox<>(new String[]{"Celsius", "Fahrenheit", "Kelvin"});
+    private JComboBox<String> cbOrigem = new JComboBox<>(new String[] { "Celsius", "Fahrenheit", "Kelvin" });
 
-    private JComboBox<String> cbDestino =
-            new JComboBox<>(new String[]{"Celsius", "Fahrenheit", "Kelvin"});
+    private JComboBox<String> cbDestino = new JComboBox<>(new String[] { "Celsius", "Fahrenheit", "Kelvin" });
 
     private JButton btnConverter = new JButton("Converter");
     private JLabel lblResultado = new JLabel("Resultado: ");
@@ -53,12 +51,11 @@ public class TemperaturaView extends JFrame {
     }
 
     public void mostrarErro(String mensagem) {
-    JOptionPane.showMessageDialog(
-        this,
-        mensagem,
-        "Valor inválido",
-        JOptionPane.ERROR_MESSAGE
-    );
-}
+        JOptionPane.showMessageDialog(
+                this,
+                mensagem,
+                "Valor inválido",
+                JOptionPane.ERROR_MESSAGE);
+    }
 
 }

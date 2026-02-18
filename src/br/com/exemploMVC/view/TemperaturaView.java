@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 
 public class TemperaturaView extends JFrame {
 
+    private String version = "0.1";
+
     private JTextField txtValor = new JTextField(10);
 
     private JComboBox<String> cbOrigem = new JComboBox<>(new String[] { "Celsius", "Fahrenheit", "Kelvin" });
@@ -16,7 +18,7 @@ public class TemperaturaView extends JFrame {
     private JLabel lblResultado = new JLabel("Resultado: ");
 
     public TemperaturaView() {
-        setTitle("Conversor de Temperatura - MVC");
+        setTitle("Conversor de Temperatura - MVC " + version);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(400, 200);
         setLayout(new GridLayout(5, 1));

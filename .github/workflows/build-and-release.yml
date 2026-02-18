@@ -52,6 +52,6 @@ jobs:
           name: Release ${{ github.ref_name }}
           body: |
             Release oficial do Conversor de Temperatura (Java Swing).
-          files: ConversorTemperaturaSwing-${{ github.ref_name }}.jar
+          files: ConversorTemperaturaMVCSwing-${{ github.ref_name }}.jar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

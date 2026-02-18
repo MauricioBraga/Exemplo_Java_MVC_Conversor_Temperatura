@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 public class TemperaturaView extends JFrame {
 
-    private String version = "0.21";
+    private String version = "0.31";
 
     private JTextField txtValor = new JTextField(10);
 

@@ -2,9 +2,8 @@ name: Build Swing JAR (Plain Java) and Release
 
 on:
   push:
-    branches:
-      - main
-      - master
+    tags:
+      - 'v*'
 
 permissions:
   contents: write   # necessário para criar releases
@@ -43,16 +42,16 @@ jobs:
       - name: Create executable JAR
         run: |
           echo "Main-Class: br.com.exemploMVC.Main" > manifest.txt
-          jar cfm ConversorTemperaturaMVCSwing.jar manifest.txt -C build/classes .
+          jar cfm ConversorTemperaturaMVCSwing-${{ github.ref_name }}.jar manifest.txt -C build/classes .
 
       # Cria release no GitHub
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: build-${{ github.run_number }}
-          name: Build ${{ github.run_number }}
+          tag_name: ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
           body: |
-            Release automática do Conversor de Temperatura (Java Swing).
-          files: ConversorTemperaturaMVCSwing.jar
+            Release oficial do Conversor de Temperatura (Java Swing).
+          files: ConversorTemperaturaSwing-${{ github.ref_name }}.jar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

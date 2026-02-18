@@ -1,7 +1,14 @@
 name: Build Swing JAR (Plain Java) and Release
+name: Build Swing JAR (Plain Java) and Release
 
 on:
   push:
+    branches:
+      - main
+      - master
+
+permissions:
+  contents: write   # necessário para criar releases
     branches:
       - main
       - master
@@ -14,6 +21,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout do código
+      - name: Checkout repository
+        uses: actions/checkout@v4
       # Checkout do código
       - name: Checkout repository
         uses: actions/checkout@v4
